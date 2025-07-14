@@ -33,35 +33,36 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-   const toggle = document.getElementById('menu-toggle');
-  const navLinks = document.getElementById('nav-links');
-  const overlay = document.getElementById('overlay');
+   document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    const overlay = document.getElementById('overlay');
 
-  toggle.addEventListener('click', (e) => {
-    e.stopPropagation();
-    navLinks.classList.add('show');
-    overlay.classList.add('show');
-  });
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      navLinks.classList.add('show');
+      overlay.classList.add('show');
+    });
 
-  navLinks.addEventListener('click', (e) => {
-    if (e.target.tagName === 'A') {
+    navLinks.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A') {
+        navLinks.classList.remove('show');
+        overlay.classList.remove('show');
+      }
+      e.stopPropagation();
+    });
+
+    overlay.addEventListener('click', () => {
       navLinks.classList.remove('show');
       overlay.classList.remove('show');
-    }
-    e.stopPropagation();
-  });
+    });
 
-  overlay.addEventListener('click', () => {
-    navLinks.classList.remove('show');
-    overlay.classList.remove('show');
-  });
-
- 
-  document.body.addEventListener('click', (e) => {
-    if (!navLinks.contains(e.target) && !toggle.contains(e.target)) {
-      navLinks.classList.remove('show');
-      overlay.classList.remove('show');
-    }
+    document.body.addEventListener('click', (e) => {
+      if (!navLinks.contains(e.target) && !toggle.contains(e.target)) {
+        navLinks.classList.remove('show');
+        overlay.classList.remove('show');
+      }
+    });
   });
 
 
