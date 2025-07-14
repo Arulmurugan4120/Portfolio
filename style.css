@@ -339,3 +339,51 @@ button[type="submit"]:hover {
   }
 }
 
+/* Small Devices (Mobiles) */
+@media (max-width: 600px) {
+  .navbar {
+    padding: 1rem;
+  }
+
+  .nav-links {
+    width: 100%;
+    top: 100%;
+    right: 0;
+  }
+
+  .profile-pic {
+    width: 150px;
+    height: 150px;
+  }
+
+  .about-me,
+  .mec, .sen, .gbhss,
+  .project1, .project2,
+  form {
+    max-width: 100%;
+    width: 100%;
+    padding: 10px;
+  }
+
+  input, textarea {
+    font-size: 0.9rem;
+  }
+
+  .download-btn,
+  button[type="submit"] {
+    width: 100%;
+  }
+}
+
+.about-me {
+  width: 100%;
+  max-width: 750px;
+  margin: 1rem auto;
+}
+
+.mec, .sen, .gbhss {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+}
+
