@@ -38,14 +38,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const navLinks = document.getElementById('nav-links');
     const overlay = document.getElementById('overlay');
 
-    // Toggle menu and overlay when clicking the menu button
+   
     toggle.addEventListener('click', (e) => {
       e.stopPropagation();
       navLinks.classList.toggle('show');
       overlay.classList.toggle('show');
     });
 
-    // Close menu when a link is clicked
     navLinks.addEventListener('click', (e) => {
       if (e.target.tagName === 'A') {
         navLinks.classList.remove('show');
@@ -54,13 +53,11 @@ document.addEventListener("DOMContentLoaded", () => {
       e.stopPropagation();
     });
 
-    // Close menu when overlay is clicked
     overlay.addEventListener('click', () => {
       navLinks.classList.remove('show');
       overlay.classList.remove('show');
     });
 
-    // Close menu when clicking anywhere outside menu and toggle button
     document.body.addEventListener('click', (e) => {
       if (!navLinks.contains(e.target) && !toggle.contains(e.target)) {
         navLinks.classList.remove('show');
