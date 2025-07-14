@@ -90,14 +90,14 @@ header {
   font-size: 1.2rem;
   margin-top: 1rem;
   flex-direction: column;
-  text-align: left;
+  text-align: justify;
   direction: flex;
   align-items: center;
   border: 0px solid #ccc;
   border-radius: 10px;
   position: relative;
   padding: 5px;
-  margin-left : 35px;
+  margin-left : 55px;
   width: 750px;
   margin-bottom: 30px;
 
@@ -125,22 +125,25 @@ header {
   transform: translateY(0);
 }
 
-.mec{
-    font-size: 1rem;
-    margin: 1rem;
-    flex-direction: column;
-    text-align: justify;
-    direction: flex;
-    align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    position: relative;
-    padding: 30px;
-    padding-top: 85px;
-    width: 300px;
-    height: 300px;
-    background-image: url('images/bg.avif');
+.mec, .sen, .gbhss {
+  font-size: 1rem;
+  margin: 1rem auto;
+  flex-direction: column;
+  text-align: justify;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 30px;
+  padding-top: 30px;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin: 20px;
+  margin-bottom: 20px;
+  background-image: url('images/bg.avif');
+  box-sizing: border-box;
 }
+
 
 .mec:hover{
     background-image: linear-gradient(to right, #5e5f5f, #f2eef0, #5e5f5f );
@@ -151,22 +154,6 @@ header {
 }
 
 
-.sen{
-    font-size: 1rem;
-    margin: 1rem;
-    flex-direction: column;
-    text-align: justify;
-    direction: flex;
-    align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    position: relative;
-    padding: 30px;
-    padding-top: 85px;
-    width: 300px;
-    height: 300px;
-    background-image: url('images/bg.avif');
-}
 
 .sen:hover{
     background-image: linear-gradient(to right, #5e5f5f, #f2edf0, #5e5f5f );
@@ -176,22 +163,6 @@ header {
     transition-duration: 0.5s;
 }
 
-.gbhss{
-    font-size: 1rem;
-    margin: 1rem;
-    flex-direction: column;
-    text-align: justify;
-    direction: flex;
-    align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    position: relative;
-    padding: 30px;
-    padding-top: 85px;
-    width: 300px;
-    height: 300px;
-    background-image: url('images/bg.avif');
-}
 
 .gbhss:hover{
     background-image: linear-gradient(to right, #5e5f5f, #f4eff2, #5e5f5f );
@@ -318,24 +289,128 @@ button[type="submit"]:hover {
   display: none;
 }
 
+.about-wrapper {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 @media (max-width: 768px) {
+  .about-wrapper {
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-me {
+    margin-left: 0;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .profile-pic {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); 
+  display: none;
+  z-index: 900; 
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #333;
+  z-index: 1001;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+  }
+
+  .logo {
+    margin-left: 3rem;
+    margin-top: 0.5rem;
+  }
+
   .nav-links {
     flex-direction: column;
-    background: #fff;
+    background: #b5b3b3;
     position: absolute;
-    top: 60px;
-    right: 0;
-    width: 200px;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 75vw;
     display: none;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    padding: 2rem 1rem;
+    width: 50vw; 
+    z-index: 1000;
   }
 
   .nav-links.show {
     display: flex;
   }
 
+  .nav-links li {
+    margin-bottom: 1rem;
+  }
+
+  .nav-links a {
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    display: block;
+    white-space: nowrap;
+  }
+
+  .overlay.show {
+    display: block;
+  }
+}
+
+
+/* Medium Devices (Tablets) */
+@media (max-width: 1024px) {
   .navbar {
     flex-direction: column;
+    padding: 1rem;
+  }
+
+  .nav-links {
+    gap: 0.5rem;
+  }
+
+  .about-me {
+    max-width: 90%;
+  }
+
+  .mec, .sen, .gbhss {
+    max-width: 90%;
+  }
+
+  .section {
+    padding: 15px;
   }
 }
 
@@ -385,5 +460,12 @@ button[type="submit"]:hover {
   width: 100%;
   max-width: 300px;
   height: auto;
+}
+
+.menu-toggle {
+  cursor: pointer;
+}
+.nav-links a {
+  cursor: pointer;
 }
 
