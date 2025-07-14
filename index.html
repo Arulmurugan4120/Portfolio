@@ -10,7 +10,8 @@
   <header>
     <nav class="navbar">
       <div class="logo">MyPortfolio</div>
-      <ul class="nav-links">
+      <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+      <ul id="nav-links" class="nav-links">
         <li><a href="#about">About Me</a></li>
         <li><a href="#education">Education</a></li>
         <li><a href="#skills">Skills</a></li>
@@ -21,17 +22,23 @@
     </nav>
   </header>
 
+  <div class="overlay" id="overlay"></div>
+
   <main>
     <section id="about" class="section fade-in">
       <h1>About Me</h1>
-      <table>
-        <td>
+      <div class="about-wrapper">
+
+     
       <img src="images/am.jpeg.jpg" alt="Profile Picture" class="profile-pic" />
-      </td>
-      <td>
+    
+
+      <div class="about-wrapper">
+      
       <p class="about-me">Hello, I am a Bachelor of Engineering student majoring in Computer Science and Engineering with a strong focus on Front-End Development. I have a solid understanding of web technologies, particularly HTML and CSS, and I am skilled at creating responsive and visually appealing web pages. Additionally, I possess intermediate knowledge of Java programming and a good grasp of object-oriented programming concepts.</p>
-      </td>
-      </table>
+      
+    </div>
+  </div>
     </section>
 
     <section id="education" class="section slide-in">
@@ -54,7 +61,8 @@
       <ul class="skills-list">
         <li>Java</li>
         <li>Python</li>
-        <li>HTML/CSS</li>
+        <li>HTML</li>
+        <li>CSS</li>
         <li>JavaScript</li>
         <li>MySQL</li>
       </ul>
