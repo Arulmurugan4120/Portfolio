@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">MyPortfolio</div>
+      <ul class="nav-links">
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certificate">Certificate</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="about" class="section fade-in">
+      <h1>About Me</h1>
+      <table>
+        <td>
+      <img src="images/am.jpeg.jpg" alt="Profile Picture" class="profile-pic" />
+      </td>
+      <td>
+      <p class="about-me">Hello, I am a Bachelor of Engineering student majoring in Computer Science and Engineering with a strong focus on Front-End Development. I have a solid understanding of web technologies, particularly HTML and CSS, and I am skilled at creating responsive and visually appealing web pages. Additionally, I possess intermediate knowledge of Java programming and a good grasp of object-oriented programming concepts.</p>
+      </td>
+      </table>
+    </section>
+
+    <section id="education" class="section slide-in">
+      <h1>Education</h1>
+      <table>
+        <td>
+            <p class="mec">B.E. in Computer Science and Engineering from Mahendra Engineering College with 86.8% CGPA and Year of Passing (2021-2025).</p>
+        </td>
+        <td>
+            <p class="sen">Sengunthar Higher Secondary School with 87% and Year of Passing (2020 - 2021). </p>
+        </td>
+        <td>
+            <p class="gbhss">Government Boys Higher Secondary School with 82% and Year of Passing (2018 - 2019). </p>
+        </td>
+      </table>
+    </section>
+
+    <section id="skills" class="section zoom-in">
+      <h1>Skills</h1>
+      <ul class="skills-list">
+        <li>Java</li>
+        <li>Python</li>
+        <li>HTML/CSS</li>
+        <li>JavaScript</li>
+        <li>MySQL</li>
+      </ul>
+    </section>
+
+    <section id="projects" class="section fade-in">
+      <h1>Projects</h1>
+      <table>
+        <tr>
+        <p class="project1"><span class="pro1">College Canteen Management System </span><br>The College Canteen Management System is a web-based application designed to streamline the ordering, payment, and management of canteen services, making the process more efficient and user-friendly.</br> </p>
+        </tr>
+
+        <tr>
+            <p class="project2"><span class="pro2">Online Leave Management System </span><br>The Online Leave Management System is a web-based application that automates and simplifies employee leave requests, approvals, and management, replacing traditional paper-based processes with an efficient digital solution.</br></p>
+        </tr>
+      </table>
+      
+    </section>
+
+    <section id="certificate" class="section slide-in">
+      <h1>Certificates</h1>
+      <ul class="cert-list">
+        <li>Java Certificate - Besant Technologies</li>
+        <li>Python - Guvi</li>
+        <li>AI - Infosys Springboard</li>
+      </ul>
+    </section>
+
+    <section id="resume" class="section slide-in">
+      <h1>Resume</h1>
+      <a href="files/Arul Murugan N Resume (CGPA in Percentage).pdf" download class="download-btn">Download My Resume</a>
+
+    </section>
+
+    <section id="contact" class="section zoom-in">
+      <h1>Contact</h1>
+      <form id="contactForm">
+        <input type="text" placeholder="Name" required />
+        <input type="email" placeholder="Email" required />
+        <textarea placeholder="Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <button id="scrollToTop">Top</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
