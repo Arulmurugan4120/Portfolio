@@ -12,8 +12,8 @@ body {
   background-color: #f9f9f9;
   width: 100%;
   background-color: #b5b3b3;
-  background-image: url('images/bg.avif');
   background-size: cover;
+  color: #000;
 }
 
 header {
@@ -22,9 +22,51 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-image: url('images/bg.avif');
   background-size: cover;
+  font-weight: bolder;
 
+}
+
+.video-header,
+.video-section {
+  position: relative;
+  overflow: hidden;
+  opacity: 0.8;
+}
+
+.section-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.4;
+}
+
+.section-content,
+.navbar {
+  position: relative;
+  z-index: 1;
+}
+
+.video-header {
+  height: auto;
+}
+
+.video-header .navbar {
+  background: transparent;
+}
+
+
+.video-section::before,
+.video-header::before {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: 0;
 }
 
 .navbar {
@@ -73,6 +115,9 @@ header {
   width: 200px;
   height: 200px;
   border-radius: 50%;
+  margin: 1rem;
+  border: 10px double #303030;
+  background-color: #303030;
   margin-bottom: 1rem;
 }
 
@@ -87,21 +132,72 @@ header {
 
 
 .about-me {
-  font-size: 1.2rem;
-  margin-top: 1rem;
-  flex-direction: column;
+  font-size: 1.1rem;
+  margin: 1rem 0;
   text-align: justify;
   direction: flex;
   align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 10px;
   border: 0px solid #ccc;
   border-radius: 10px;
-  position: relative;
-  padding: 5px;
-  margin-left : 55px;
-  width: 750px;
-  margin-bottom: 30px;
-
+  padding: 20px;
+  margin-top: 20px;
 }
+
+.about-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.about-content {
+  max-width: 600px;
+  flex: 1;
+}
+
+#about-me1 {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+  text-align: justify;
+  direction: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  margin : 20px;
+  max-width: 96.5%;
+}
+
+.my-name {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.profile-pic {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.social-icons {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icons img {
+  width: 32px;
+  height: 32px;
+  transition: transform 0.3s ease;
+}
+
+.social-icons img:hover {
+  transform: scale(1.2);
+}
+
 
 .title {
   font-weight: bold;
@@ -113,9 +209,6 @@ header {
 #about{
     border: 10px solid none;
     border-radius: 10px;
-    padding: 20px;
-    margin-top: 20px;
-    background-image: url('images/bg.avif');
     background-position-x: 500px;
     background-position-y: 200px;
 }
@@ -140,7 +233,6 @@ header {
   height: auto;
   margin: 20px;
   margin-bottom: 20px;
-  background-image: url('images/bg.avif');
   box-sizing: border-box;
 }
 
@@ -178,7 +270,6 @@ header {
     border-radius: 10px;
     padding: 20px;
     margin-top: 20px;
-    background-image: url('images/bg.avif');
     background-image: cover;
     background-position-x: 500px;
     background-position-y: 200px;
@@ -189,6 +280,7 @@ header {
 .cert-list {
   list-style: none;
   padding-left: 20px;
+  margin-top: 1rem;
 }
 
 .skills-list li,
@@ -199,6 +291,7 @@ header {
 .project1, .project2 {
   font-size: 1.2rem;
   margin: 1rem 0;
+  margin-left: 20px;
   text-align: justify;
   direction: flex;
   align-items: center;
@@ -212,7 +305,6 @@ header {
     border-radius: 10px;
     padding: 20px;
     margin-top: 20px;
-    background-image: url('images/bg.avif');
     background-image: cover;
     background-position-x: 500px;
     background-position-y: 200px;
@@ -220,7 +312,6 @@ header {
 }
 
 .project1:hover, .project2:hover {
-     background-image: url('images/bg.avif');
      background-position-y: 10px ;
      background-image:linear-gradient(to right, #5e5f5f, #f4eff2, #5e5f5f)
 }
@@ -232,48 +323,58 @@ header {
   color: #333;
 }
 
+#dwn1{
+  margin-top: 25px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  width: 240px;
+  display: flex;
+}
+
 .download-btn {
-  display: inline-block;
-  margin-top: 20px;
+  direction: inherit;
   padding: 10px 20px;
   background: #727171;
   color: #fff;
   text-decoration: none;
-  border-radius: 8px;
+  border-radius: 5px;
   transition: 0.3s ease;
+  font-size: 1.1rem;
 }
 
 .download-btn:hover {
-  background: #555;
+  background: #000;
 }
 
-
-form {
+#contactForm {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  margin: 20px;
   max-width: 500px;
+
 }
 
 input, textarea {
   padding: 0.75rem;
   border: 1px solid #ccc;
   border-radius: 5px;
-  font-size: 1rem;
-  width: 100%;
+  font-size: 1.1rem;
+  width: 96.5%;
 }
 
-button[type="submit"] {
-  background: #333;
+#submit1:hover {
+  background: #000;
+}
+#submit1 {
+  background: #616060;
   color: #fff;
   padding: 0.75rem;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-}
-
-button[type="submit"]:hover {
-  background: #555;
+  width: 240px;
+  font-size: 1.1rem;
 }
 
 #scrollToTop {
@@ -310,10 +411,39 @@ button[type="submit"]:hover {
     padding: 1rem;
   }
 
+  #about-me1 {
+    width: 100%;
+    padding: 1rem;
+    margin: 0 auto;
+  } 
+
   .profile-pic {
     width: 150px;
     height: 150px;
+    margin-bottom: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
   }
+
+  #contactForm {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 10px;
+  max-width: 500px;
+
+}
+  .my-name {
+    width: 100%;
+    margin-right: 250px;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .social-icons{
+    justify-content: center;
+  }
+
 }
 
 @media (max-width: 480px) {
@@ -323,15 +453,40 @@ button[type="submit"]:hover {
     text-align: center;
   }
 
+  #about-me1 {
+    width: 100%;
+    padding: 1rem;
+    margin: 0 auto;
+  }
+
   .about-me {
     margin-left: 0;
     width: 100%;
     padding: 1rem;
   }
 
+  #contactForm {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 10px;
+  max-width: 500px;
+
+}
   .profile-pic {
     width: 150px;
     height: 150px;
+  }
+
+  .my-name {
+    width: 100%;
+    margin: 20px;;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .social-icons{
+    justify-content: center;
   }
 }
 
@@ -368,6 +523,21 @@ button[type="submit"]:hover {
     position: relative;
   }
 
+  #about-me1 {
+    width: 100%;
+    padding: 1rem;
+    margin: 0 auto;
+  }
+
+  #contactForm {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 10px;
+  max-width: 500px;
+
+}
+
   .logo {
     margin-left: 3rem;
     margin-top: 0.5rem;
@@ -400,6 +570,22 @@ button[type="submit"]:hover {
     display: block;
     color: #727171;
   }
+
+  .about-me{
+    max-width: 90%;
+    margin-left: 200px;
+  }
+
+  .my-name {
+    width: 100%;
+    margin-right: 250px;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .social-icons{
+    justify-content: center;
+  }
 }
 
 @media (max-width: 480px) {
@@ -410,11 +596,26 @@ button[type="submit"]:hover {
     left: 1rem;
   }
 
+  #about-me1 {
+    width: 100%;
+    padding: 1rem;
+    margin: 0 auto;
+  }
+
   .navbar {
     flex-direction: column;
     align-items: flex-start;
     position: relative;
   }
+
+  #contactForm {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 10px;
+  max-width: 500px;
+
+}
 
   .logo {
     margin-left: 3rem;
@@ -470,6 +671,21 @@ button[type="submit"]:hover {
 
   .about-me {
     max-width: 90%;
+    margin-left: auto;
+  }
+
+  #contactForm {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 10px;
+  max-width: 500px;
+
+}
+  #about-me1 {
+    width: 100%;
+    padding: 1rem;
+    margin: 0 auto;
   }
 
   .mec, .sen, .gbhss {
@@ -498,6 +714,12 @@ button[type="submit"]:hover {
     height: 150px;
   }
 
+  #about-me1 {
+    width: 100%;
+    padding: 1rem;
+    margin: 0 auto;
+  }
+
   .about-me,
   .mec, .sen, .gbhss,
   .project1, .project2,
@@ -505,7 +727,16 @@ button[type="submit"]:hover {
     max-width: 100%;
     width: 100%;
     padding: 10px;
+    margin-left: auto;
   }
+
+  #contactForm {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 10px;
+  max-width: 500px;
+}
 
   input, textarea {
     font-size: 0.9rem;
@@ -534,5 +765,72 @@ button[type="submit"]:hover {
 }
 .nav-links a {
   cursor: pointer;
+}
+
+.my-name {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #333;
+      animation: nameFadeIn 2s ease-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes nameFadeIn {
+      0% { transform: translateX(-100px); opacity: 0; }
+      100% { transform: translateX(0); opacity: 1; }
+    }
+
+    /* Fade-in effect for sections */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Bounce effect for resume button */
+    #dwn1 {
+      animation: bounceResume 2s ease infinite;
+    }
+
+    @keyframes bounceResume {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    /* Slide in for About Me paragraph */
+    #about-me1 {
+      animation: slideInAbout 2s ease-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes slideInAbout {
+      0% { transform: translateX(100px); opacity: 0; }
+      100% { transform: translateX(0); opacity: 1; }
+    }
+
+  #bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.6; /* Optional: makes content more readable */
+}
+
+.overlay-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* darkens the background */
+  z-index: -1;
 }
 
