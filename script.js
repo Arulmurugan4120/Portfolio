@@ -57,12 +57,20 @@ document.addEventListener("DOMContentLoaded", () => {
       navLinks.classList.remove('show');
       overlay.classList.remove('show');
     });
+});
 
-    document.body.addEventListener('click', (e) => {
-      if (!navLinks.contains(e.target) && !toggle.contains(e.target)) {
-        navLinks.classList.remove('show');
-        overlay.classList.remove('show');
-      }
+ const sections1 = document.querySelectorAll('.fade-in');
+    const observer1 = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    sections1.forEach(section => {
+      observer1.observe(section);
     });
-  });
+    
+  
 
